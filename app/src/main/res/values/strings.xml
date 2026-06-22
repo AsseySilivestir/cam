@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DualCam Recorder</string>
+    
+    <!-- Permission strings -->
+    <string name="permission_camera">Camera access is required to record video</string>
+    <string name="permission_mic">Microphone access is required for narration</string>
+    <string name="permission_storage">Storage access is required to save recordings</string>
+    <string name="permission_denied">Permissions denied. The app cannot function without required permissions.</string>
+    <string name="permission_rationale_title">Permissions Required</string>
+    <string name="permission_rationale_message">DualCam Recorder needs camera and microphone permissions to record video with dual cameras and audio narration.</string>
+    <string name="permission_grant">Grant Permissions</string>
+    <string name="permission_deny">Deny</string>
+    <string name="permission_settings">Open Settings</string>
+    <string name="permission_permanently_denied">Permissions were permanently denied. Please enable them in Settings.</string>
+    
+    <!-- Recording strings -->
+    <string name="recording_started">Recording started</string>
+    <string name="recording_stopped">Recording saved</string>
+    <string name="recording_paused">Recording paused</string>
+    <string name="recording_resumed">Recording resumed</string>
+    <string name="recording_error">Failed to record video</string>
+    <string name="recording_timer_format">%02d:%02d:%02d</string>
+    
+    <!-- Photo strings -->
+    <string name="photo_captured">Photo saved</string>
+    <string name="photo_dual_captured">Dual photos saved</string>
+    <string name="photo_error">Failed to capture photo</string>
+    
+    <!-- Camera strings -->
+    <string name="camera_back">Back Camera</string>
+    <string name="camera_front">Front Camera</string>
+    <string name="camera_dual">Dual Camera</string>
+    <string name="camera_switch_back">Switched to back camera</string>
+    <string name="camera_switch_front">Switched to front camera</string>
+    <string name="camera_switch_dual">Switched to dual camera mode</string>
+    <string name="camera_unavailable">Camera unavailable</string>
+    <string name="camera_open_error">Failed to open camera</string>
+    
+    <!-- Aspect ratio strings -->
+    <string name="aspect_ratio_title">Select Aspect Ratio</string>
+    <string name="aspect_ratio_9_16">9:16</string>
+    <string name="aspect_ratio_1_1">1:1</string>
+    <string name="aspect_ratio_16_9">16:9</string>
+    <string name="aspect_ratio_4_3">4:3</string>
+    <string name="aspect_ratio_tiktok">TikTok / Reels</string>
+    <string name="aspect_ratio_instagram">Instagram Feed</string>
+    <string name="aspect_ratio_youtube">YouTube / Facebook</string>
+    <string name="aspect_ratio_standard">Standard</string>
+    <string name="aspect_ratio_changed">Aspect ratio changed to %s</string>
+    
+    <!-- Error strings -->
+    <string name="error_title">Something went wrong</string>
+    <string name="error_retry">Retry</string>
+    <string name="error_close">Close</string>
+    <string name="error_camera_failed">Camera initialization failed. Please try again.</string>
+    <string name="error_recording_failed">Recording failed unexpectedly. Please try again.</string>
+    <string name="error_file_save">Failed to save file. Check storage space.</string>
+    <string name="error_generic">An unexpected error occurred.</string>
+    
+    <!-- Control strings -->
+    <string name="mic_on">Microphone on</string>
+    <string name="mic_off">Microphone muted</string>
+    <string name="flash_on">Flash on</string>
+    <string name="flash_off">Flash off</string>
+    
+    <!-- Accessibility strings -->
+    <string name="accessibility_record_button">Record video</string>
+    <string name="accessibility_capture_button">Take photo</string>
+    <string name="accessibility_switch_camera">Switch camera</string>
+    <string name="accessibility_toggle_mic">Toggle microphone</string>
+    <string name="accessibility_toggle_flash">Toggle flash</string>
+    <string name="accessibility_aspect_ratio">Change aspect ratio</string>
+    <string name="accessibility_gallery">Open gallery</string>
+</resources>

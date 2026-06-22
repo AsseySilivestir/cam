@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ratio_item_height"
+    android:background="@drawable/bg_aspect_ratio_selected"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16dp">
+
+    <!-- Visual preview rectangle -->
+    <FrameLayout
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:gravity="center">
+
+        <!-- Preview shape showing the aspect ratio visually -->
+        <View
+            android:id="@+id/ratio_preview"
+            android:layout_width="24dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_ratio_preview"
+            android:scaleType="fitCenter" />
+    </FrameLayout>
+
+    <!-- Ratio label and platform name -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Ratio label (e.g., "9:16") -->
+        <TextView
+            android:id="@+id/ratio_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/ratio_text_size"
+            android:textStyle="bold" />
+
+        <!-- Platform name (e.g., "TikTok / Reels") -->
+        <TextView
+            android:id="@+id/ratio_platform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/ratio_label_size" />
+    </LinearLayout>
+
+    <!-- Selection indicator -->
+    <ImageView
+        android:id="@+id/ratio_check"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="Selected"
+        android:src="@drawable/ic_check"
+        android:tint="@color/colorAccent"
+        android:visibility="invisible" />
+</LinearLayout>

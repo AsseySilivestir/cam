@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary colors -->
+    <color name="colorPrimary">#1A1A2E</color>
+    <color name="colorPrimaryDark">#0F0F1A</color>
+    <color name="colorAccent">#E94560</color>
+    
+    <!-- UI surface colors -->
+    <color name="colorSurface">#1E1E30</color>
+    <color name="colorSurfaceLight">#2A2A40</color>
+    
+    <!-- Text colors -->
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextSecondary">#B0B0C0</color>
+    <color name="colorTextHint">#6A6A80</color>
+    
+    <!-- Recording indicator -->
+    <color name="colorRecording">#FF1744</color>
+    <color name="colorRecordingPulse">#FF5252</color>
+    
+    <!-- Button colors -->
+    <color name="colorButtonActive">#FFFFFF</color>
+    <color name="colorButtonInactive">#4A4A5A</color>
+    <color name="colorButtonBackground">#2A2A3A</color>
+    
+    <!-- PIP border -->
+    <color name="colorPIPBorder">#FFFFFF</color>
+    <color name="colorPIPBackground">#80000000</color>
+    
+    <!-- Overlay backgrounds -->
+    <color name="colorOverlayDark">#CC000000</color>
+    <color name="colorOverlayMedium">#80000000</color>
+    
+    <!-- Status colors -->
+    <color name="colorSuccess">#00E676</color>
+    <color name="colorWarning">#FFD600</color>
+    <color name="colorError">#FF1744</color>
+    
+    <!-- Semi-transparent backgrounds -->
+    <color name="colorPanelBackground">#B3000000</color>
+    <color name="colorTimerBackground">#80000000</color>
+</resources>

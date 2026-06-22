@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Control panel -->
+    <dimen name="control_panel_height">180dp</dimen>
+    <dimen name="control_panel_padding">16dp</dimen>
+    <dimen name="control_panel_margin_bottom">24dp</dimen>
+    
+    <!-- Record button -->
+    <dimen name="record_button_size">72dp</dimen>
+    <dimen name="record_button_stroke">4dp</dimen>
+    <dimen name="record_button_pulse_size">80dp</dimen>
+    
+    <!-- Control buttons -->
+    <dimen name="control_button_size">48dp</dimen>
+    <dimen name="control_button_icon_size">24dp</dimen>
+    <dimen name="control_button_padding">12dp</dimen>
+    
+    <!-- PIP window -->
+    <dimen name="pip_width">120dp</dimen>
+    <dimen name="pip_height">160dp</dimen>
+    <dimen name="pip_corner_radius">12dp</dimen>
+    <dimen name="pip_margin">16dp</dimen>
+    <dimen name="pip_border_width">2dp</dimen>
+    
+    <!-- Timer -->
+    <dimen name="timer_text_size">14sp</dimen>
+    <dimen name="timer_padding_horizontal">16dp</dimen>
+    <dimen name="timer_padding_vertical">6dp</dimen>
+    <dimen name="timer_margin_top">48dp</dimen>
+    <dimen name="timer_corner_radius">20dp</dimen>
+    
+    <!-- Aspect ratio selector -->
+    <dimen name="ratio_item_height">80dp</dimen>
+    <dimen name="ratio_preview_width">40dp</dimen>
+    <dimen name="ratio_preview_height">60dp</dimen>
+    <dimen name="ratio_text_size">14sp</dimen>
+    <dimen name="ratio_label_size">12sp</dimen>
+    
+    <!-- Spacing -->
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    
+    <!-- Corner radius -->
+    <dimen name="corner_radius_small">8dp</dimen>
+    <dimen name="corner_radius_medium">12dp</dimen>
+    <dimen name="corner_radius_large">16dp</dimen>
+</resources>

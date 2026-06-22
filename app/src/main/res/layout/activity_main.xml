@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <!-- Full-screen GL compositor for dual camera rendering -->
+    <com.dualcam.recorder.gl.GLComposerView
+        android:id="@+id/gl_composer_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Recording timer display (top center, hidden by default) -->
+    <TextView
+        android:id="@+id/recording_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/bg_timer_badge"
+        android:fontFamily="monospace"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="6dp"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <!-- PIP camera indicator label -->
+    <TextView
+        android:id="@+id/pip_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="200dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_pip_label"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:text="Front Camera"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:visibility="gone" />
+
+    <!-- Bottom control panel -->
+    <com.dualcam.recorder.ui.ControlPanel
+        android:id="@+id/control_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+</FrameLayout>
