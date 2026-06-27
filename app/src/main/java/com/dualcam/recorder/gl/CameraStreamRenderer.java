@@ -1,14 +1,12 @@
 package com.dualcam.recorder.gl;
 
-import android.graphics.SurfaceTexture;
 import android.opengl.EGL14;
 import android.opengl.EGLExt;
-import android.opengl.GLES10;
-import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.util.Log;
+import android.view.Surface;
 
 import com.dualcam.recorder.camera.CameraConfig;
 
@@ -16,10 +14,9 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
-import android.view.Surface;
-
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GLES11Ext;
 
 /**
  * OpenGL ES 2.0 renderer that composes two camera streams into a single view.

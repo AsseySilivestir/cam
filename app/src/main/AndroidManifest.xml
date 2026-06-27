@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dualcam.recorder">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Camera permissions for front and back cameras -->
     <uses-permission android:name="android.permission.CAMERA" />
@@ -16,6 +15,9 @@
     
     <!-- Required for background recording service -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     
     <!-- Hardware features -->
     <uses-feature android:name="android.hardware.camera" android:required="true" />
@@ -29,7 +31,7 @@
         android:label="DualCam Recorder"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme.DualCam"
         android:requestLegacyExternalStorage="true">
 
         <activity

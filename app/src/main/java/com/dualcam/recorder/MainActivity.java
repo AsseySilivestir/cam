@@ -79,9 +79,6 @@ public class MainActivity extends AppCompatActivity {
     /** Timer interval for updating recording duration display (in milliseconds) */
     private static final long TIMER_INTERVAL_MS = 1000;
 
-    /** Request code for the gallery intent */
-    private static final int GALLERY_REQUEST_CODE = 2001;
-
     // =========================================================================
     // Instance fields
     // =========================================================================
@@ -383,18 +380,24 @@ public class MainActivity extends AppCompatActivity {
                     AppLogger.i(TAG, "Cameras opened successfully");
                     runOnUiThread(() -> {
                         try {
-                            // Update GLComposerView with camera surfaces
-                            if (backSurface != null) {
+                            // Update GLComposerView with camera surfaces.
+                            // Guard against null SurfaceTextures that may occur if
+                            // the GL surface has not been created yet.
+                            if (backSurface != null && composerView.getMainSurfaceTexture() != null) {
                                 cameraManager.setBackSurfaceTexture(
                                         composerView.getMainSurfaceTexture(),
                                         cameraConfig.getPreferredWidth(),
                                         cameraConfig.getPreferredHeight());
+                            } else if (backSurface != null) {
+                                AppLogger.w(TAG, "Main SurfaceTexture not ready yet, will be set on GL surface creation");
                             }
-                            if (frontSurface != null) {
+                            if (frontSurface != null && composerView.getFrontSurfaceTexture() != null) {
                                 cameraManager.setFrontSurfaceTexture(
                                         composerView.getFrontSurfaceTexture(),
                                         cameraConfig.getPreferredWidth(),
                                         cameraConfig.getPreferredHeight());
+                            } else if (frontSurface != null) {
+                                AppLogger.w(TAG, "Front SurfaceTexture not ready yet, will be set on GL surface creation");
                             }
                         } catch (Exception e) {
                             AppLogger.e(TAG, "Error setting camera surfaces");
@@ -590,7 +593,12 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onGLSurfaceCreated(int mainTextureId, int pipTextureId) {
                     AppLogger.i(TAG, "GL surface created: main=" + mainTextureId + ", pip=" + pipTextureId);
-                    // Surfaces are ready — cameras will be opened via permissions callback
+                    // When the GL surface is ready, open cameras if we have permissions.
+                    // This ensures SurfaceTextures are available before cameras try to use them.
+                    if (permissionHelper != null && permissionHelper.hasAllPermissions()
+                            && cameraManager != null) {
+                        cameraManager.openCameras(cameraConfig);
+                    }
                 }
 
                 @Override
@@ -771,7 +779,10 @@ public class MainActivity extends AppCompatActivity {
         try {
             AppLogger.i(TAG, "Stopping recording...");
 
-            // Disconnect encoder surface from GL renderer before stopping
+            // Disconnect encoder surface from GL renderer and stop recording
+            // on the GL thread to avoid race conditions between the renderer
+            // and the encoder. The encoder is stopped after the surface is
+            // disconnected, ensuring no frames are in flight.
             composerView.queueEvent(() -> {
                 try {
                     composerView.setInputSurface(null);
@@ -781,8 +792,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            // Stop video recording
-            videoRecorder.stop();
+            // Allow the GL thread to process the surface disconnect before
+            // stopping the encoder. A small delay ensures the queued event
+            // has been executed.
+            composerView.queueEvent(() -> {
+                try {
+                    videoRecorder.stop();
+                    AppLogger.i(TAG, "Video recorder stopped");
+                } catch (Exception e) {
+                    AppLogger.e(TAG, "Error stopping video recorder");
+                }
+            });
 
             // Stop audio recording
             if (audioRecorder != null && audioRecorder.isRecording()) {

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.dualcam.recorder.MainActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import com.dualcam.recorder.camera.CameraConfig;
 import com.dualcam.recorder.utils.AppLogger;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -165,9 +165,9 @@ public class AspectRatioSelector {
     /**
      * Shows the aspect ratio selector as a bottom sheet dialog.
      *
-     * @param activity the FragmentActivity used to host the BottomSheetDialog
+     * @param activity the AppCompatActivity used to host the BottomSheetDialog
      */
-    public void show(@NonNull MainActivity activity) {
+    public void show(@NonNull AppCompatActivity activity) {
         if (activity == null) {
             AppLogger.e(TAG, "Activity is null, cannot show dialog");
             return;
@@ -198,7 +198,7 @@ public class AspectRatioSelector {
 
     /**
      * Sets the currently selected aspect ratio and updates the UI highlight.
-     * <p>Call this before {@link #show(MainActivity)} to pre-select an option.</p>
+     * <p>Call this before {@link #show(AppCompatActivity)} to pre-select an option.</p>
      *
      * @param ratio the aspect ratio to mark as selected
      * @throws IllegalArgumentException if ratio is null

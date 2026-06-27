@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -349,8 +350,9 @@ public class ControlPanel extends LinearLayout {
                 dpToPx(RECORD_BUTTON_SIZE_DP), dpToPx(RECORD_BUTTON_SIZE_DP)));
         overlayContainer.addView(circleView);
 
-        // Wrap both in an outer container
-        FrameLayoutWrapper wrapper = new FrameLayoutWrapper(getContext(), ringSize, ringSize);
+        // Wrap both in a FrameLayout so the circle overlays the ring
+        FrameLayout wrapper = new FrameLayout(getContext());
+        wrapper.setLayoutParams(new LayoutParams(ringSize, ringSize));
         wrapper.addView(ringView);
         wrapper.addView(overlayContainer);
 
@@ -387,9 +389,9 @@ public class ControlPanel extends LinearLayout {
      * @param parent   the parent LinearLayout
      * @param widthDp  the spacing width in dp
      */
-    private void addSpacing(LinearLayout parent, int widthDp) {
+    private void addSpacing(LinearLayout parent, int widthPx) {
         View spacer = new View(getContext());
-        spacer.setLayoutParams(new LayoutParams(widthDp, 1));
+        spacer.setLayoutParams(new LayoutParams(widthPx, 1));
         parent.addView(spacer);
     }
 
@@ -627,30 +629,4 @@ public class ControlPanel extends LinearLayout {
         return (int) (dp * density + 0.5f);
     }
 
-    // =========================================================================
-    // Inner helper: FrameLayout-like wrapper
-    // =========================================================================
-
-    /**
-     * Simple FrameLayout wrapper for overlaying the record circle on the ring.
-     * <p>Used as a minimal alternative to android.widget.FrameLayout for
-     * programmatic layout without requiring the full FrameLayout import.</p>
-     */
-    private static class FrameLayoutWrapper extends LinearLayout {
-
-        /**
-         * Creates a new FrameLayoutWrapper.
-         *
-         * @param context the context
-         * @param width   the width in pixels
-         * @param height  the height in pixels
-         */
-        FrameLayoutWrapper(Context context, int width, int height) {
-            super(context);
-            setOrientation(LinearLayout.VERTICAL);
-            setGravity(Gravity.CENTER);
-            LayoutParams params = new LayoutParams(width, height);
-            setLayoutParams(params);
-        }
-    }
 }
